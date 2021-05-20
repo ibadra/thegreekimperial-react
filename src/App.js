@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import './App.css';
+import React, { Component } from "react";
+import { Navbar, NavbarBrand } from "reactstrap";
+import Amenities from "./components/AmenitiesComponent";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -11,10 +12,10 @@ class App extends Component {
             <NavbarBrand href="/">The Greek Imperial</NavbarBrand>
           </div>
         </Navbar>
+        <Amenities />
       </div>
     );
   }
 }
-
 
 export default App;

@@ -1,0 +1,63 @@
+/* <!------------ Fonts and font colors ------------> */
+h1 {
+  font: 500% "Merriweather", serif;
+  color: #743561;
+  font-weight: 700;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 300%;
+}
+
+p {
+  font: 110% "Mulish", sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 300%;
+  }
+
+  h2 {
+    font-size: 200%;
+  }
+
+  h4 {
+    font-size: 140%;
+    text-align: center;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
+  h4 {
+    font-size: 100%;
+    text-align: center;
+  }
+}  */
+
+/* <!------------ Headings and Paragraphs ------------> */
+
+.container-fluid h1,
+.container-fluid h2 {
+  margin: 2rem 0 4rem 0;
+}
+
+h1 + p,
+h3 + p,
+h4 + p,
+.justify {
+  line-height: 2rem;
+}
+
+h2 {
+  text-align: center;
+}

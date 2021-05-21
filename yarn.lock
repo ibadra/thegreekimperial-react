@@ -1741,6 +1741,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@openfonts/mulish_latin-ext@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@openfonts/mulish_latin-ext/-/mulish_latin-ext-0.0.1.tgz#92772b91a2b72d229a87a39fbcd1d26f6adaf067"
+  integrity sha512-b/VOwOaOwKCjGM99YYLoyBJKgQKkaR48sVGCS/tIptRbhWPr8aRpAewtTuMjmz6UfWzL4Zw3uwRLZP1yElqbNA==
+
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
@@ -5507,6 +5512,11 @@ follow-redirects@^1.0.0:
   integrity sha512-4eyLK6s6lH32nOvLLwlIOnr9zrL8Sm+OvW4pVTJNoXeGzYIkHVf+pADQi+OJ0E67hiuSLezPVPyBcIZO50TmmQ==
   dependencies:
     debug "^3.0.0"
+
+fontsource-playfair-display@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-playfair-display/-/fontsource-playfair-display-4.0.0.tgz#ae65207e42089385c2b8d378982f1e680ca4e3fd"
+  integrity sha512-n6Q7jEFuRSgRprdPsIOT622gDpEuUCV/y99RK/ZBAhPjCBhjpmuxJahX8Vx53GmSm3h7WaIVuE4vsgPLWShkqQ==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -11528,6 +11538,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-merriweather@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-1.1.13.tgz#c6f0564bc0346174f4da8daf282d27bfa802f06f"
+  integrity sha512-ho6xe/y/uHIKVXsFtK+dJfRCD5KZqJCMYTCcXfuCwQHQbeQ83a7hVkxfRMTEIjZOSXw5SevOjnwJuZ5QgWEHiw==
 
 unbox-primitive@^1.0.0:
   version "1.0.1"

@@ -14,7 +14,7 @@ class Amenities extends Component {
               <img
                 src={amenity.image}
                 alt={amenity.description}
-                className="amenity-image img-fluid"
+                className="img-fluid"
               />
             </div>
             <div className="col-md-5 align-self-center">

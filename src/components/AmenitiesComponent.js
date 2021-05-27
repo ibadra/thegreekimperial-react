@@ -9,7 +9,7 @@ class Amenities extends Component {
         this.props.amenities.indexOf(amenity) === 0
       ) {
         return (
-          <div key={amenity.id} className="row mt-5 mb-5">
+          <div key={amenity.id} className="row m-3 mt-5 mb-5">
             <div className="col-md-5">
               <img
                 src={amenity.image}
@@ -25,7 +25,7 @@ class Amenities extends Component {
         );
       } else {
         return (
-          <div key={amenity.id} className="row mt-5 mb-5">
+          <div key={amenity.id} className="row m-4 mt-5 mb-5">
             <div className="col-md-5 align-self-center order-last order-md-first">
               <h4 tag="h4">{amenity.name}</h4>
               <p className="d-none d-md-block">{amenity.description}</p>

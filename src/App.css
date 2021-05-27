@@ -61,3 +61,25 @@ h4 + p,
 h2 {
   text-align: center;
 }  */
+
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.card-title {
+  font: 0.1rem "Playfair Display", serif;
+}
+
+.card-img-overlay .card-title {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}

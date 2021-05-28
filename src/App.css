@@ -75,11 +75,14 @@ h6 {
   font-weight: 600;
 }
 
-.card-title {
-  font: 0.1rem "Playfair Display", serif;
-}
-
-.card-img-overlay .card-title {
+.card-img-overlay > .card-title {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.navbar-dark {
+  background-color: #5b3c94;
+  /* font: 1.2rem "Mulish", sans-serif; */
+}
+
+

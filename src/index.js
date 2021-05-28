@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "fontsource-playfair-display";
 import "@openfonts/mulish_latin-ext";
 import "typeface-merriweather";
+import 'font-awesome/css/font-awesome.css';
+import 'bootstrap-social/bootstrap-social.css';
 import App from "./App";
 ReactDOM.render(
   <React.StrictMode>

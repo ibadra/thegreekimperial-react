@@ -85,4 +85,12 @@ h6 {
   /* font: 1.2rem "Mulish", sans-serif; */
 }
 
+footer a, footer i, footer a:hover {
+  color: white;
+}
 
+footer div.row, footer div.text-center {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  line-height: 1.9;
+}

@@ -42,3 +42,5 @@ export const AMENITIES = [
       "Hosting you dream wedding, sweet sixteen, fundraising event? We are here for you, we can help you plan your party or just reserving one of our elegant ballrooms.",
   },
 ];
+
+export const footerImg = 'assets/img/footer-img.png';

@@ -3,8 +3,10 @@ import Amenities from "./AmenitiesComponent";
 import Rooms from "./RoomsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
+import Hero from "./HeroComponent";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
+import { heroContent } from "../shared/header-footer";
 
 class Main extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ class Main extends Component {
     this.state = {
       amenities: AMENITIES,
       rooms: ROOMS,
+      heroContent: heroContent
     };
   }
 
@@ -19,6 +22,7 @@ class Main extends Component {
     return (
       <div>
         <Header />
+        <Hero heroContent={this.state.heroContent} />
         <Rooms rooms={this.state.rooms} />
         <Amenities amenities={this.state.amenities} />
         <Footer />

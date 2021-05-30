@@ -1,5 +1,5 @@
 import React from "react";
-import { footerImg } from "../shared/amenities";
+import { footerImg } from "../shared/header-footer";
 
 function Footer(props) {
   return (

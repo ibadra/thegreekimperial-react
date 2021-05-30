@@ -43,4 +43,3 @@ export const AMENITIES = [
   },
 ];
 
-export const footerImg = 'assets/img/footer-img.png';

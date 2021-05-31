@@ -1,9 +1,9 @@
 /* <!------------ Fonts and font colors ------------> */
-/* h1 {
-  font: 500% "Merriweather", serif;
+h1 {
+  font: 400% "Merriweather", serif;
   color: #743561;
   font-weight: 700;
-} */
+}
 
 /*h2,
 h3,
@@ -85,12 +85,35 @@ h6 {
   /* font: 1.2rem "Mulish", sans-serif; */
 }
 
-footer a, footer i, footer a:hover {
+footer a,
+footer i,
+footer a:hover {
   color: white;
 }
 
-footer div.row, footer div.text-center {
+footer div.row,
+footer div.text-center {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   line-height: 1.7;
+}
+
+.carousel-hero {
+  padding: 0;
+}
+
+.text-hero {
+  padding: 2rem;
+  line-height: 2;
+}
+
+.text-hero > h1 {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .text-hero {
+    position: absolute;
+    top: 0;
+  }
 }

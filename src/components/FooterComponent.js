@@ -1,7 +1,7 @@
 import React from "react";
 import { footerImg } from "../shared/header-footer";
 
-function Footer(props) {
+function Footer() {
   return (
     <footer
       style={{ backgroundImage: `URL(${footerImg})` }}

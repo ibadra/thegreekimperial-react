@@ -4,11 +4,12 @@ import Rooms from "./RoomsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Hero from "./HeroComponent";
+import Reviews from "./ReviewsComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
-import { heroContent } from "../shared/header-footer";
-import { logoImg } from "../shared/header-footer";
+import { heroContent, logoImg } from "../shared/header-footer";
+import { reviews, press } from "../shared/reviews";
 
 class Main extends Component {
   constructor(props) {
@@ -18,6 +19,8 @@ class Main extends Component {
       rooms: ROOMS,
       heroContent: heroContent,
       logoImg: logoImg,
+      reviews: reviews,
+      press: press,
     };
   }
 
@@ -29,6 +32,7 @@ class Main extends Component {
         <Switch>
           <Rooms rooms={this.state.rooms} />
         </Switch>
+        <Reviews reviews={this.state.reviews} press={this.state.press} />
         <Amenities amenities={this.state.amenities} />
         <Footer />
       </div>

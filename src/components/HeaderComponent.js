@@ -30,7 +30,11 @@ class Header extends Component {
       <Navbar dark sticky="top" expand="lg">
         <div className="container">
           <NavbarBrand className="mr-auto" href="/">
-            <img src={this.props.logoImg} className="logo img-fluid" />
+            <img
+              src={this.props.logoImg}
+              alt="The Greek Imperial Hotel"
+              className="logo img-fluid"
+            />
           </NavbarBrand>
           <NavbarToggler class="mr-0" onClick={this.toggleNav} />
           <Collapse isOpen={this.state.isNavOpen} navbar>

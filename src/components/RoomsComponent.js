@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
 function Rooms({ rooms }) {
   const room = rooms.map((room) => {

@@ -5,6 +5,7 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Hero from "./HeroComponent";
 import Reviews from "./ReviewsComponent";
+import { CTA, Location, Newsletter } from "./FinalComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
@@ -34,6 +35,9 @@ class Main extends Component {
         </Switch>
         <Reviews reviews={this.state.reviews} press={this.state.press} />
         <Amenities amenities={this.state.amenities} />
+        <CTA />
+        <Location />
+        <Newsletter />
         <Footer />
       </div>
     );

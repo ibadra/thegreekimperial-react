@@ -173,7 +173,9 @@ footer div.text-center {
   }
 }
 
-#reviews {
+#reviews,
+#CTA,
+#location {
   padding: 7% 15%;
   text-align: center;
   background-color: pink;

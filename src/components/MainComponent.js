@@ -32,8 +32,8 @@ class Main extends Component {
         <Header logoImg={this.state.logoImg} />
         <Hero heroContent={this.state.heroContent} />
         <Switch>
-          <RoomInfo rooms={this.state.rooms} />
           <Rooms rooms={this.state.rooms} />
+          <RoomInfo rooms={this.state.rooms} />
         </Switch>
         <Reviews reviews={this.state.reviews} press={this.state.press} />
         <Amenities amenities={this.state.amenities} />

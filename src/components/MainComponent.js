@@ -5,6 +5,7 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Hero from "./HeroComponent";
 import Reviews from "./ReviewsComponent";
+import RoomInfo from "./RoomInfoComponent";
 import { CTA, Location, Newsletter } from "./FinalComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
@@ -31,6 +32,7 @@ class Main extends Component {
         <Header logoImg={this.state.logoImg} />
         <Hero heroContent={this.state.heroContent} />
         <Switch>
+          <RoomInfo rooms={this.state.rooms} />
           <Rooms rooms={this.state.rooms} />
         </Switch>
         <Reviews reviews={this.state.reviews} press={this.state.press} />

@@ -1,4 +1,6 @@
 import React from "react";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const RenderRoom = ({ room }) => {
   return (
@@ -58,6 +60,12 @@ function RoomInfo({ rooms }) {
   });
   return (
     <div className="container">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <Link to="/home#rooms">Rooms</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem active>Room</BreadcrumbItem>
+      </Breadcrumb>
       <h2>Our room options</h2>
       <hr />
       <div className="row mt-5">{roomsDisplay}</div>

@@ -33,8 +33,8 @@ class Main extends Component {
         <Hero heroContent={this.state.heroContent} />
         <Switch>
           <Rooms rooms={this.state.rooms} />
-          <RoomInfo rooms={this.state.rooms} />
         </Switch>
+        <RoomInfo rooms={this.state.rooms} />
         <Reviews reviews={this.state.reviews} press={this.state.press} />
         <Amenities amenities={this.state.amenities} />
         <CTA />

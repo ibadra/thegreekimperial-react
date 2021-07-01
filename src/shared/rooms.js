@@ -5,6 +5,8 @@ export const ROOMS = [
     description:
       "Our Athens Suite is designed to give maximum space, comfort and luxury to a large party of guests. Equipped with TV, coffee maker and fridge.",
     image: "assets/img/room-2.png",
+    guests: "6",
+    beds: "3",
     icon1: <i className="fa fa-user fa-3x" />,
     icon2: <i className="fa fa-bed fa-3x" />,
     icon3: (
@@ -17,6 +19,8 @@ export const ROOMS = [
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 416 512"
+        height="3rem"
+        width="3rem"
       >
         <path
           fill="currentColor"
@@ -31,6 +35,8 @@ export const ROOMS = [
     description:
       "Perfect for small families, the Corfu Room invites you to relax while you plan your itinerary. Equipped with TV, coffee maker and fridge.",
     image: "assets/img/room-3.png",
+    guests: "4",
+    beds: "2",
     icon1: <i className="fa fa-user fa-3x" />,
     icon2: <i className="fa fa-bed fa-3x" />,
     icon3: (
@@ -43,6 +49,9 @@ export const ROOMS = [
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 416 512"
+        viewBox="0 0 416 512"
+        height="3rem"
+        width="3rem"
       >
         <path
           fill="currentColor"
@@ -57,6 +66,8 @@ export const ROOMS = [
     description:
       "Perfect for a getaway or a honeymoon, our Kalamata Room is your best option. Equipped with TV, coffee maker and fridge.",
     image: "assets/img/room-1.png",
+    guests: "2",
+    beds: "1",
     icon1: <i className="fa fa-user fa-3x" />,
     icon2: <i className="fa fa-bed fa-3x" />,
     icon3: (
@@ -69,6 +80,9 @@ export const ROOMS = [
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 416 512"
+        viewBox="0 0 416 512"
+        height="3rem"
+        width="3rem"
       >
         <path
           fill="currentColor"
@@ -88,7 +102,7 @@ export const ROOMS = [
     id: 4,
     name: "Conference Rooms",
     description:
-      "TWe can help you make arrangements, from mixed seating for one session, then a communal meeting set-up with lots of screens. And later, something more formal. In between it all, we will design some casual break-out venues plus open networking spaces.",
+      "We can help you make arrangements, from mixed seating for one session, then a communal meeting set-up with lots of screens. And later, something more formal. In between it all, we will design some casual break-out venues plus open networking spaces.",
     image: "assets/img/conference.png",
   },
 ];

@@ -214,3 +214,13 @@ footer div.text-center {
 #press {
   text-align: center;
 }
+
+.room-info {
+  margin: 3.1rem auto 2.8rem 1rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  width: 18rem;
+}

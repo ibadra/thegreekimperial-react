@@ -18,7 +18,7 @@ function Rooms({ rooms }) {
   });
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" id="rooms">
       <h2 tag="h2" className="text-center">
         Accomodations
       </h2>

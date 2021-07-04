@@ -6,9 +6,9 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Button,
 } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 class Header extends Component {
   constructor(props) {
@@ -50,24 +50,25 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link navbar-text" to="/rooms">
+                <NavHashLink className="nav-link navbar-text" to="/home#rooms">
                   Rooms
-                </NavLink>
+                </NavHashLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link navbar-text" to="/contactus">
+                <NavLink className="nav-link navbar-text" to="/contact">
                   Contact
                 </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
           <span className="navbar-text ml-3 mr-1">
-            <Button
+            <Link
+              role="button"
               className="btn btn-lg btn-outline-light px-5 book-btn"
               to="/book"
             >
               Book
-            </Button>
+            </Link>
           </span>
         </div>
       </Navbar>

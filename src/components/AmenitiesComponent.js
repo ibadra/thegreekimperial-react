@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 function RenderAmenitiesEven({ amenity }) {
   return (
@@ -58,9 +58,6 @@ function Amenities({ amenities }) {
 }
 
 export default Amenities;
-
-
-
 
 // SAME CODE AS A CLASS COMPONENT:
 

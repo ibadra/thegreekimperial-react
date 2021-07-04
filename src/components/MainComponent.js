@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import Amenities from "./AmenitiesComponent";
 import Rooms from "./RoomsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import Hero from "./HeroComponent";
-import Reviews from "./ReviewsComponent";
 import RoomInfo from "./RoomInfoComponent";
-import { CTA, Location, Newsletter } from "./FinalComponent";
+import Home from "./HomeComponent";
+import Contact from "./ContactComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
@@ -27,19 +25,31 @@ class Main extends Component {
   }
 
   render() {
+    const HomePage = () => {
+      return (
+        <Home
+          heroContent={this.state.heroContent}
+          rooms={this.state.rooms}
+          amenities={this.state.amenities}
+          reviews={this.state.reviews}
+          press={this.state.press}
+        />
+      );
+    };
     return (
       <div>
         <Header logoImg={this.state.logoImg} />
-        <Hero heroContent={this.state.heroContent} />
         <Switch>
-          <Rooms rooms={this.state.rooms} />
+          <Route path="/home" component={HomePage} />
+          <Route
+            exact
+            path="/home#rooms"
+            render={() => <Rooms rooms={this.state.rooms} />}
+          />
+          <RoomInfo rooms={this.state.rooms} />
+          <Route exact path="/contact" component={Contact} />
+          <Redirect to="/home" />
         </Switch>
-        <RoomInfo rooms={this.state.rooms} />
-        <Reviews reviews={this.state.reviews} press={this.state.press} />
-        <Amenities amenities={this.state.amenities} />
-        <CTA />
-        <Location />
-        <Newsletter />
         <Footer />
       </div>
     );

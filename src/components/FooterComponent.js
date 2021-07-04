@@ -1,5 +1,6 @@
 import React from "react";
 import { footerImg } from "../shared/header-footer";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -53,25 +54,19 @@ function Footer() {
               <h5 className="text-uppercase">Links</h5>
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a href="#!">Book</a>
+                  <Link to="/book">Book</Link>
                 </li>
                 <li>
-                  <a href="#">Home</a>
+                  <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <a href="#about-us">About Us</a>
+                  <Link to="/home">About Us</Link>
                 </li>
                 <li>
-                  <a href="#rooms">Rooms</a>
+                  <Link to="/home#rooms">Rooms</Link>
                 </li>
                 <li>
-                  <a href="#restaurant">Dining</a>
-                </li>
-                <li>
-                  <a href="#store">Shop</a>
-                </li>
-                <li>
-                  <a href="#!">Contact</a>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </div>

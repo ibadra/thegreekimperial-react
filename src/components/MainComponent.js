@@ -5,6 +5,7 @@ import Footer from "./FooterComponent";
 import RoomInfo from "./RoomInfoComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
+import Book from "./BookComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
@@ -36,6 +37,17 @@ class Main extends Component {
         />
       );
     };
+
+    const RoomWithId = ({ match }) => {
+      return (
+        <RoomInfo
+          rooms={this.state.rooms.find(
+            (room) => room.id === +match.params.roomId
+          )}
+        />
+      );
+    };
+
     return (
       <div>
         <Header logoImg={this.state.logoImg} />
@@ -46,8 +58,9 @@ class Main extends Component {
             path="/home#rooms"
             render={() => <Rooms rooms={this.state.rooms} />}
           />
-          <RoomInfo rooms={this.state.rooms} />
+          <Route path="/rooms/:roomId" component={RoomWithId} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/book" component={Book} />
           <Redirect to="/home" />
         </Switch>
         <Footer />

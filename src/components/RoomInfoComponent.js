@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const RenderRoom = ({ room }) => {
   return (
-    <div className="col-md-5" key={room.id}>
+    <div className="col-md-5">
       <h3>{room.name}</h3>
       <img
         src={room.image}
@@ -18,7 +18,7 @@ const RenderRoom = ({ room }) => {
 const RenderInfo = ({ room }) => {
   if (room.icon1) {
     return (
-      <div className="col-md-5" key={room.id}>
+      <div className="col-md-5">
         <p className="room-info">{room.description}</p>
         <h4 className="ml-3">Facts at a Glance:</h4>
         <div className="icon-container ml-3 mt-5">
@@ -49,28 +49,50 @@ const RenderInfo = ({ room }) => {
   );
 };
 
-function RoomInfo({ rooms }) {
-  const roomsDisplay = rooms.map((room) => {
+function RoomInfo(props) {
+  if (props.rooms) {
     return (
-      <React.Fragment key={room.id}>
-        <RenderRoom room={room} />
-        <RenderInfo room={room} />
-      </React.Fragment>
+      <div className="container">
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <Link to="/home#rooms">Rooms</Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Room</BreadcrumbItem>
+        </Breadcrumb>
+        <h2>Our room options</h2>
+        <hr />
+        <div className="row mt-5">
+          <RenderRoom room={props.rooms} />
+          <RenderInfo room={props.rooms} />
+        </div>
+      </div>
     );
-  });
-  return (
-    <div className="container">
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <Link to="/home#rooms">Rooms</Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem active>Room</BreadcrumbItem>
-      </Breadcrumb>
-      <h2>Our room options</h2>
-      <hr />
-      <div className="row mt-5">{roomsDisplay}</div>
-    </div>
-  );
+  }
+  return <div />;
 }
+
+// function RoomInfo({ rooms }) {
+//   const roomsDisplay = rooms.map((room) => {
+//     return (
+//       <React.Fragment key={room.id}>
+//         <RenderRoom room={room} />
+//         <RenderInfo room={room} />
+//       </React.Fragment>
+//     );
+//   });
+//   return (
+//     <div className="container">
+//       <Breadcrumb>
+//         <BreadcrumbItem>
+//           <Link to="/home#rooms">Rooms</Link>
+//         </BreadcrumbItem>
+//         <BreadcrumbItem active>Room</BreadcrumbItem>
+//       </Breadcrumb>
+//       <h2>Our room options</h2>
+//       <hr />
+//       <div className="row mt-5">{roomsDisplay}</div>
+//     </div>
+//   );
+// }
 
 export default RoomInfo;

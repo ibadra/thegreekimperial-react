@@ -160,6 +160,13 @@ footer div.text-center {
   line-height: 1.8;
 }
 
+.main-p-small {
+  color: black;
+  font-size: 110%;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+
 @media screen and (max-width: 600px) {
   .main-p {
     font-size: 100%;

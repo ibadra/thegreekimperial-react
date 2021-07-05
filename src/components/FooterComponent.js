@@ -1,6 +1,7 @@
 import React from "react";
 import { footerImg } from "../shared/header-footer";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function Footer() {
   return (
@@ -63,7 +64,7 @@ function Footer() {
                   <Link to="/home">About Us</Link>
                 </li>
                 <li>
-                  <Link to="/home#rooms">Rooms</Link>
+                  <HashLink to="/home#rooms">Rooms</HashLink>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>

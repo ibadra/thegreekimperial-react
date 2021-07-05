@@ -4,7 +4,7 @@ export const ROOMS = [
     name: "Athens Suite",
     description:
       "Our Athens Suite is designed to give maximum space, comfort and luxury to a large party of guests. Equipped with TV, coffee maker and fridge.",
-    image: "assets/img/room-2.png",
+    image: "/assets/img/room-2.png",
     guests: "6",
     beds: "3",
     icon1: <i className="fa fa-user fa-3x" />,
@@ -34,7 +34,7 @@ export const ROOMS = [
     name: "Corfu Room",
     description:
       "Perfect for small families, the Corfu Room invites you to relax while you plan your itinerary. Equipped with TV, coffee maker and fridge.",
-    image: "assets/img/room-3.png",
+    image: "/assets/img/room-3.png",
     guests: "4",
     beds: "2",
     icon1: <i className="fa fa-user fa-3x" />,
@@ -65,7 +65,7 @@ export const ROOMS = [
     name: "Kalamata Room",
     description:
       "Perfect for a getaway or a honeymoon, our Kalamata Room is your best option. Equipped with TV, coffee maker and fridge.",
-    image: "assets/img/room-1.png",
+    image: "/assets/img/room-1.png",
     guests: "2",
     beds: "1",
     icon1: <i className="fa fa-user fa-3x" />,
@@ -96,13 +96,13 @@ export const ROOMS = [
     name: "Ballrooms",
     description:
       "The ballrooms are beautifully appointed with crystal chandeliers and a creamy color palette that is sure to compliment your chosen color scheme or preferred décor. The ballrooms can comfortably accommodate up to 500, 250 or 100 guests for a sit-down meal with ample room for a dance floor and staging.",
-    image: "assets/img/ballroom-2.png",
+    image: "/assets/img/ballroom-2.png",
   },
   {
     id: 4,
     name: "Conference Rooms",
     description:
       "We can help you make arrangements, from mixed seating for one session, then a communal meeting set-up with lots of screens. And later, something more formal. In between it all, we will design some casual break-out venues plus open networking spaces.",
-    image: "assets/img/conference.png",
+    image: "/assets/img/conference.png",
   },
 ];

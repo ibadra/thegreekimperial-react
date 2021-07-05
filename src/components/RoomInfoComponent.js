@@ -52,12 +52,12 @@ const RenderInfo = ({ room }) => {
 function RoomInfo(props) {
   if (props.rooms) {
     return (
-      <div className="container">
+      <div className="container mt-5 pt-4 mb-5 pb-5">
         <Breadcrumb>
           <BreadcrumbItem>
-            <Link to="/home#rooms">Rooms</Link>
+            <Link to="/rooms">Rooms</Link>
           </BreadcrumbItem>
-          <BreadcrumbItem active>Room</BreadcrumbItem>
+          <BreadcrumbItem active>{props.rooms.name}</BreadcrumbItem>
         </Breadcrumb>
         <h2>Our room options</h2>
         <hr />
@@ -70,29 +70,5 @@ function RoomInfo(props) {
   }
   return <div />;
 }
-
-// function RoomInfo({ rooms }) {
-//   const roomsDisplay = rooms.map((room) => {
-//     return (
-//       <React.Fragment key={room.id}>
-//         <RenderRoom room={room} />
-//         <RenderInfo room={room} />
-//       </React.Fragment>
-//     );
-//   });
-//   return (
-//     <div className="container">
-//       <Breadcrumb>
-//         <BreadcrumbItem>
-//           <Link to="/home#rooms">Rooms</Link>
-//         </BreadcrumbItem>
-//         <BreadcrumbItem active>Room</BreadcrumbItem>
-//       </Breadcrumb>
-//       <h2>Our room options</h2>
-//       <hr />
-//       <div className="row mt-5">{roomsDisplay}</div>
-//     </div>
-//   );
-// }
 
 export default RoomInfo;

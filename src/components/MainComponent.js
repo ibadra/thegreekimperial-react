@@ -55,7 +55,7 @@ class Main extends Component {
           <Route path="/home" component={HomePage} />
           <Route
             exact
-            path="/home#rooms"
+            path="/rooms"
             render={() => <Rooms rooms={this.state.rooms} />}
           />
           <Route path="/rooms/:roomId" component={RoomWithId} />

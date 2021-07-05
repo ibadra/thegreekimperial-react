@@ -40,6 +40,7 @@ export function Location() {
             style={{ border: 0 }}
             allowfullscreen=""
             loading="lazy"
+            className="img-fluid"
           ></iframe>
         </div>
       </div>

@@ -8,31 +8,40 @@ import {
   Label,
   Input,
   Col,
+  Modal,
+  ModalBody,
+  ModalHeader,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-class Book extends Component {
+export class Book extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
-      phoneNum: "",
-      email: "",
-      agree: false,
-      contactType: "By Phone",
-      feedback: "",
+      checkIn: new Date(),
+      checkOut: new Date(),
+      rooms: "Select...",
+      adults: 1,
+      children: 0,
+      showModal: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal,
+    });
   }
 
   handleInputChange(event) {
     const target = event.target;
     const name = target.name;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.value;
 
     this.setState({
       [name]: value,
@@ -41,321 +50,341 @@ class Book extends Component {
 
   handleSubmit(event) {
     console.log("Current state is: " + JSON.stringify(this.state));
-    alert("Current state is: " + JSON.stringify(this.state));
+    this.toggleModal();
     event.preventDefault();
   }
 
   render() {
+    const number = Math.floor(Math.random() * 9000000 + 1);
     return (
       <div className="container mt-5 pt-4 mb-5 pb-5">
         <Breadcrumb>
           <BreadcrumbItem>
             <Link to="/home">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbItem active>Contact</BreadcrumbItem>
+          <BreadcrumbItem active>Book a room</BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link to="/specialbooking">Special Events</Link>
+          </BreadcrumbItem>
         </Breadcrumb>
         <div className="row row-content">
           <div className="col-12">
-            <h2>Contact Us</h2>
-            <p>
-              Any feedback, special arrangements or comments? We would love to
-              hear from you!{" "}
-            </p>
+            <h2>Staying In?</h2>
+            <p>Check room availability</p>
             <hr />
           </div>
           <div className="col-md-10">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup row>
-                <Label htmlFor="firstName" md={2}>
-                  First Name
+                <Label htmlFor="checkIn" md={2}>
+                  Check In
                 </Label>
-                <Col md={10}>
+                <Col md={3}>
                   <Input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={this.state.firstName}
+                    type="date"
+                    id="checkIn"
+                    name="checkIn"
+                    placeholder="Check In"
+                    value={this.state.checkIn}
                     onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="lastName" md={2}>
-                  Last Name
+                <Label htmlFor="checkOut" md={2}>
+                  Check In
                 </Label>
-                <Col md={10}>
+                <Col md={3}>
                   <Input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={this.state.lastName}
+                    type="date"
+                    id="checkOut"
+                    name="checkOut"
+                    placeholder="Check Out"
+                    value={this.state.checkOut}
                     onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="phoneNum" md={2}>
-                  Phone
-                </Label>
-                <Col md={10}>
-                  <Input
-                    type="tel"
-                    id="phoneNum"
-                    name="phoneNum"
-                    placeholder="Phone number"
-                    value={this.state.phoneNum}
-                    onChange={this.handleInputChange}
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label htmlFor="email" md={2}>
-                  Email
-                </Label>
-                <Col md={10}>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label htmlFor="contactType" md={{ size: 3, offset: 2 }}>
-                  Preferred Contact Method
+                <Label htmlFor="rooms" md={2}>
+                  Pick your room(s)
                 </Label>
                 <Col md={4}>
                   <Input
                     type="select"
-                    name="contactType"
-                    id="contactType"
-                    value={this.state.contactType}
+                    name="rooms"
+                    id="rooms"
+                    value={this.state.rooms}
                     onChange={this.handleInputChange}
                   >
-                    <option>By Phone</option>
-                    <option>By Email</option>
+                    <option>Select...</option>
+                    <option value="1 suite">1 Suite</option>
+                    <option value="1 room">1 Room</option>
+                    <option value="2 rooms">2 Rooms</option>
+                    <option value="3 rooms">3 Rooms</option>
+                    <option value="4 rooms">4 Rooms</option>
                   </Input>
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="message" md={2}>
-                  Your Message
+                <Label htmlFor="adults" md={2}>
+                  Adults
                 </Label>
-                <Col md={10}>
+                <Col md={4}>
                   <Input
-                    type="textarea"
-                    id="message"
-                    name="message"
-                    rows="12"
-                    value={this.state.feedback}
+                    type="select"
+                    name="adults"
+                    id="adults"
+                    value={this.state.adults}
                     onChange={this.handleInputChange}
-                  ></Input>
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </Input>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="children" md={2}>
+                  Children
+                </Label>
+                <Col md={4}>
+                  <Input
+                    type="select"
+                    name="children"
+                    id="children"
+                    value={this.state.children}
+                    onChange={this.handleInputChange}
+                  >
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </Input>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
                   <Button type="submit" color="primary">
-                    Submit
+                    Check Availability
                   </Button>
                 </Col>
               </FormGroup>
             </Form>
           </div>
         </div>
+        <Modal
+          isOpen={this.state.showModal}
+          toggle={this.toggleModal}
+          className="modal-lg"
+        >
+          <ModalHeader className="justify-content-center">
+            <h3>Opa!</h3>
+          </ModalHeader>
+          <ModalBody>
+            <p>{`Your room selection is available (Reference # ${number}).`}</p>
+            <p>
+              To make your reservation, please call us at 1-206-555-1234 with
+              your reference number at hand.
+            </p>
+            <div className="text-center">
+              <Button
+                className="mt-3 text-center"
+                type="submit"
+                color="primary"
+                onClick={this.toggleModal}
+              >
+                Thank you
+              </Button>
+            </div>
+          </ModalBody>
+        </Modal>
       </div>
     );
   }
 }
-export default Book;
 
-{
-  /* <div id="bookModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-xl" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Check Availability</h3>
-        <button type="button" class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-lg-5 mx-auto">
-                <h5 class="text-center mb-4">Staying in?</h5>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="check-in">
-                    Check in:
-                  </label>
-                  <div class="col-sm-7">
-                    <input
-                      class="form-control"
-                      type="date"
-                      id="check-in"
-                      name="check-in"
-                    />
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="check-out">
-                    Check out:
-                  </label>
-                  <div class="col-sm-7">
-                    <input
-                      class="form-control"
-                      type="date"
-                      id="check-out"
-                      name="check-out"
-                    />
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="num-of-rooms">
-                    Pick your room(s):
-                  </label>
-                  <div class="col-sm-7">
-                    <select
-                      class="form-control"
-                      name="num-of-rooms"
-                      id="num-of-rooms"
-                    >
-                      <option value="">Select...</option>
-                      <option value="1suite">1 Suite</option>
-                      <option value="1room">1 Room</option>
-                      <option value="2rooms">2 Rooms</option>
-                      <option value="3rooms">3 Rooms</option>
-                      <option value="4rooms">4 Rooms</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="num-of-adults">
-                    Adults:
-                  </label>
-                  <div class="col-sm-7">
-                    <select
-                      class="form-control"
-                      name="num-of-adults"
-                      id="num-of-adults"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="num-of-children">
-                    Children:
-                  </label>
-                  <div class="col-sm-7">
-                    <select
-                      class="form-control"
-                      name="num-of-children"
-                      id="num-of-children"
-                    >
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <hr class="d-none d-lg-block" />
-              <div class="col-12 col-lg-5 mx-auto">
-                <h5 class="text-center mb-4">Have an event?</h5>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="event-date">
-                    Event date:
-                  </label>
-                  <div class="col-sm-7">
-                    <input
-                      class="form-control"
-                      type="date"
-                      id="event-date"
-                      name="event-date"
-                    />
-                  </div>
-                </div>
-                <div class="row form-group align-items-center">
-                  <label class="col-sm-5 col-form-label">Pick one venue:</label>
-                  <div class="col-sm-7">
-                    <input
-                      type="radio"
-                      id="ballroom"
-                      name="venue"
-                      value="ballroom"
-                    />
-                    <label class="col-form-label" for="ballroom">
-                      Ballroom
-                    </label>
-                    <br />
-                    <input
-                      type="radio"
-                      id="conf-room"
-                      name="venue"
-                      value="conf-room"
-                    />
-                    <label class="col-form-label" for="conf-room">
+///////////////SPECIALBOOK COMPONENT /////////////////
+
+export class SpecialBook extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      eventDate: new Date(),
+      venue: "Conference Room",
+      typeOfEvent: "",
+      children: 0,
+      guests: "3-25",
+      showModal: false,
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal,
+    });
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === "radio" ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleSubmit(event) {
+    console.log("Current state is: " + JSON.stringify(this.state));
+    this.toggleModal();
+    event.preventDefault();
+  }
+
+  render() {
+    const number = Math.floor(Math.random() * 9000000 + 1);
+    return (
+      <div className="container mt-5 pt-4 mb-5 pb-5">
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <Link>Home</Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link to="/book">Book a room</Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Special Events</BreadcrumbItem>
+        </Breadcrumb>
+        <div className="row row-content">
+          <div className="col-12">
+            <h2>Have an event?</h2>
+            <p>Tell us more about your event!</p>
+            <hr />
+          </div>
+          <div className="col-md-10">
+            <Form onSubmit={this.handleSubmit}>
+              <FormGroup row>
+                <Label htmlFor="eventDate" md={2}>
+                  Event Date
+                </Label>
+                <Col md={3}>
+                  <Input
+                    type="date"
+                    id="eventDate"
+                    name="eventDate"
+                    placeholder="Event Date"
+                    value={this.state.eventDate}
+                    onChange={this.handleInputChange}
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label md={2}>Venue</Label>
+                <Col md={3}>
+                  <div className="form-check">
+                    <Label>
+                      <Input
+                        type="radio"
+                        value="Conference Room"
+                        checked={this.state.venue === "Conference Room"}
+                        onChange={this.handleInputChange}
+                        className="form-check-input"
+                      />
                       Conference Room
-                    </label>
-                    <br />
+                    </Label>
                   </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="type-of-event">
-                    Type of Event:
-                  </label>
-                  <div class="col-sm-7">
-                    <input
-                      class="form-control"
-                      type="text"
-                      id="type-of-event"
-                      name="type-of-event"
-                      placeholder="Type of Event"
-                    />
+                  <div className="form-check">
+                    <Label>
+                      <Input
+                        type="radio"
+                        value="Ballroom"
+                        checked={this.state.venue === "Ballroom"}
+                        onChange={this.handleInputChange}
+                        className="form-check-input"
+                      />
+                      Ballroom
+                    </Label>
                   </div>
-                </div>
-                <div class="row form-group">
-                  <label class="col-sm-5 col-form-label" for="num-of-guests">
-                    Guests:
-                  </label>
-                  <div class="col-sm-7">
-                    <select
-                      class="form-control"
-                      name="num-of-guests"
-                      id="num-of-guests"
-                    >
-                      <option value="1-25">1-25</option>
-                      <option value="26-50">26-50</option>
-                      <option value="51-75">51-75</option>
-                      <option value="76-100">76-100</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="text-center mt-3">Ready?...</p>
-            <div class="form-row">
-              <button type="submit" class="btn btn-info btn-lg mx-auto">
-                Check Availability
-              </button>
-            </div>
-          </form>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="typeOfEvent" md={2}>
+                  Type of event
+                </Label>
+                <Col md={4}>
+                  <Input
+                    type="text"
+                    name="typeOfEvent"
+                    id="typeOfEvent"
+                    value={this.state.typeOfEvent}
+                    onChange={this.handleInputChange}
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="guests" md={2}>
+                  Guests
+                </Label>
+                <Col md={4}>
+                  <Input
+                    type="select"
+                    name="guests"
+                    id="guests"
+                    value={this.state.guests}
+                    onChange={this.handleInputChange}
+                  >
+                    <option value="3-25">3-25</option>
+                    <option value="26-50">26-50</option>
+                    <option value="51-75">51-75</option>
+                    <option value="76-100">76-100</option>
+                  </Input>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col md={{ size: 10, offset: 2 }}>
+                  <Button type="submit" color="primary">
+                    Check Availability
+                  </Button>
+                </Col>
+              </FormGroup>
+            </Form>
+          </div>
         </div>
+        <Modal
+          isOpen={this.state.showModal}
+          toggle={this.toggleModal}
+          className="modal-lg"
+        >
+          <ModalHeader className="justify-content-center">
+            <h3>Opa!</h3>
+          </ModalHeader>
+          <ModalBody>
+            <p>{`Your room selection is available (Reference # ${number}).`}</p>
+            <p>
+              To make your reservation, please call us at 1-206-555-1234 with
+              your reference number at hand.
+            </p>
+            <div className="text-center">
+              <Button
+                className="mt-3 text-center"
+                type="submit"
+                color="primary"
+                onClick={this.toggleModal}
+              >
+                Thank you
+              </Button>
+            </div>
+          </ModalBody>
+        </Modal>
       </div>
-    </div>
-  </div>
-</div>; */
+    );
+  }
 }

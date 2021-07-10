@@ -5,7 +5,7 @@ import Footer from "./FooterComponent";
 import RoomInfo from "./RoomInfoComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
-import Book from "./BookComponent";
+import { Book, SpecialBook } from "./BookComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AMENITIES } from "../shared/amenities";
 import { ROOMS } from "../shared/rooms";
@@ -61,6 +61,7 @@ class Main extends Component {
           <Route path="/rooms/:roomId" component={RoomWithId} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/book" component={Book} />
+          <Route exact path="/specialbooking" component={SpecialBook} />
           <Redirect to="/home" />
         </Switch>
         <Footer />

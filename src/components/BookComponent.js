@@ -30,6 +30,7 @@ export class Book extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   toggleModal() {
@@ -52,6 +53,16 @@ export class Book extends Component {
     console.log("Current state is: " + JSON.stringify(this.state));
     this.toggleModal();
     event.preventDefault();
+  }
+
+  resetForm() {
+    this.setState({
+      checkIn: new Date(),
+      checkOut: new Date(),
+      rooms: "Select...",
+      adults: 1,
+      children: 0,
+    });
   }
 
   render() {
@@ -196,7 +207,10 @@ export class Book extends Component {
                 className="mt-3 text-center"
                 type="submit"
                 color="primary"
-                onClick={this.toggleModal}
+                onClick={() => {
+                  this.toggleModal();
+                  this.resetForm();
+                }}
               >
                 Thank you
               </Button>
@@ -210,37 +224,25 @@ export class Book extends Component {
 
 ///////////////SPECIALBOOK COMPONENT /////////////////
 
-export class SpecialBook extends Component {
-  constructor(props) {
-    super(props);
-
+export class SpecialBooking extends Component {
+  constructor() {
+    super();
     this.state = {
-      eventDate: new Date(),
-      venue: "Conference Room",
+      day: new Date(),
+      selectedOption: "Conference Room",
       typeOfEvent: "",
-      children: 0,
       guests: "3-25",
       showModal: false,
     };
-
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   toggleModal() {
     this.setState({
       showModal: !this.state.showModal,
-    });
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.type === "radio" ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
     });
   }
 
@@ -250,13 +252,31 @@ export class SpecialBook extends Component {
     event.preventDefault();
   }
 
+  handleInputChange(e) {
+    const target = e.target;
+    const name = target.name;
+    this.setState({
+      selectedOption: e.target.value,
+      [name]: e.target.value,
+    });
+  }
+
+  resetForm() {
+    this.setState({
+      day: new Date(),
+      selectedOption: "Conference Room",
+      typeOfEvent: "",
+      guests: "3-25",
+    });
+  }
+
   render() {
     const number = Math.floor(Math.random() * 9000000 + 1);
     return (
       <div className="container mt-5 pt-4 mb-5 pb-5">
         <Breadcrumb>
           <BreadcrumbItem>
-            <Link>Home</Link>
+            <Link to="/home">Home</Link>
           </BreadcrumbItem>
           <BreadcrumbItem>
             <Link to="/book">Book a room</Link>
@@ -272,47 +292,18 @@ export class SpecialBook extends Component {
           <div className="col-md-10">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup row>
-                <Label htmlFor="eventDate" md={2}>
+                <Label htmlFor="day" md={2}>
                   Event Date
                 </Label>
                 <Col md={3}>
                   <Input
                     type="date"
-                    id="eventDate"
-                    name="eventDate"
+                    id="day"
+                    name="day"
                     placeholder="Event Date"
-                    value={this.state.eventDate}
+                    value={this.state.day}
                     onChange={this.handleInputChange}
                   />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label md={2}>Venue</Label>
-                <Col md={3}>
-                  <div className="form-check">
-                    <Label>
-                      <Input
-                        type="radio"
-                        value="Conference Room"
-                        checked={this.state.venue === "Conference Room"}
-                        onChange={this.handleInputChange}
-                        className="form-check-input"
-                      />
-                      Conference Room
-                    </Label>
-                  </div>
-                  <div className="form-check">
-                    <Label>
-                      <Input
-                        type="radio"
-                        value="Ballroom"
-                        checked={this.state.venue === "Ballroom"}
-                        onChange={this.handleInputChange}
-                        className="form-check-input"
-                      />
-                      Ballroom
-                    </Label>
-                  </div>
                 </Col>
               </FormGroup>
               <FormGroup row>
@@ -349,6 +340,37 @@ export class SpecialBook extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
+                <Label md={2}>Venue</Label>
+                <Col md={3}>
+                  <div onChange={this.handleInputChange}>
+                    <div className="form-check">
+                      <Label>
+                        <Input
+                          type="radio"
+                          value="Conference Room"
+                          checked={
+                            this.state.selectedOption === "Conference Room"
+                          }
+                          onChange={this.handleInputChange}
+                        />
+                        Conference Room
+                      </Label>
+                    </div>
+                    <div className="form-check">
+                      <Label>
+                        <Input
+                          type="radio"
+                          value="Ballroom"
+                          checked={this.state.selectedOption === "Ballroom"}
+                          onChange={this.handleInputChange}
+                        />
+                        Ballroom
+                      </Label>
+                    </div>
+                  </div>
+                </Col>
+              </FormGroup>
+              <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
                   <Button type="submit" color="primary">
                     Check Availability
@@ -367,7 +389,7 @@ export class SpecialBook extends Component {
             <h3>Opa!</h3>
           </ModalHeader>
           <ModalBody>
-            <p>{`Your room selection is available (Reference # ${number}).`}</p>
+            <p>{`We have a ${this.state.selectedOption} available for you. (Reference # ${number}).`}</p>
             <p>
               To make your reservation, please call us at 1-206-555-1234 with
               your reference number at hand.
@@ -377,7 +399,10 @@ export class SpecialBook extends Component {
                 className="mt-3 text-center"
                 type="submit"
                 color="primary"
-                onClick={this.toggleModal}
+                onClick={() => {
+                  this.toggleModal();
+                  this.resetForm();
+                }}
               >
                 Thank you
               </Button>

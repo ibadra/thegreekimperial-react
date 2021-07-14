@@ -48,12 +48,12 @@ function Amenities({ amenities }) {
     }
   });
   return (
-    <div className="container-fluid">
+    <section id="amenities" className="container-fluid">
       <h2 tag="h2" className="text-center">
         Amenities
       </h2>
       <div className="container">{amenitiesDisplay}</div>
-    </div>
+    </section>
   );
 }
 

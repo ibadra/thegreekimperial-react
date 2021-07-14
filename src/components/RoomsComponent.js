@@ -21,12 +21,12 @@ function Rooms({ rooms }) {
   });
 
   return (
-    <div className="container-fluid" id="rooms">
+    <section className="container-fluid" id="rooms">
       <h2 tag="h2" className="text-center">
         Accomodations
       </h2>
       <div className="row m-4 d-flex justify-content-center">{room}</div>
-    </div>
+    </section>
   );
 }
 

@@ -22,7 +22,7 @@ export function CTA() {
 
 export function Location() {
   return (
-    <section className="container">
+    <section id="location" className="container-fluid">
       <div className="row">
         <div className="col-12 col-md-4">
           <h4>Here we are!</h4>
@@ -50,7 +50,7 @@ export function Location() {
 
 export function Newsletter() {
   return (
-    <section className="container-fluid">
+    <section id="newsletter" className="container-fluid">
       <h2>Subscribe to Our Newsletter</h2>
       <form>
         <div className="form-group row align-items-center">

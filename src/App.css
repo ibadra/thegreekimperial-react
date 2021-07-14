@@ -5,14 +5,24 @@ h1 {
   font-weight: 700;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   h1 {
-    font-size: 150%;
+    font-size: 300%;
+    color: #845460;
+  }
+
+  #reviews h2,
+  .review-text {
+    font-size: 170%;
   }
 }
 
 h2 {
   line-height: 1.5;
+}
+
+h2:not(.review-text) {
+  font-size: 250%;
 }
 
 /*h2,
@@ -54,6 +64,39 @@ p {
   }
 }  */
 
+/* <!------------ Background Colors and Sections ------------> */
+
+#amenities,
+#reviews,
+#CTA,
+#location,
+#newsletter {
+  padding: 7% 15%;
+  text-align: center;
+}
+
+#rooms,
+#reviews,
+#CTA,
+#newsletter {
+  background-color: #f7e9c2;
+}
+
+#rooms h2,
+#CTA h2,
+#newsletter h2 {
+  color: #3c415c;
+}
+
+#amenities h2,
+#location h4 {
+  color: #845460;
+}
+
+body {
+  background-color: #adbed2;
+}
+
 /* <!------------ Headings and Paragraphs ------------> */
 
 /* .container-fluid h1,
@@ -83,6 +126,11 @@ h5,
 h6 {
   font-family: "Playfair Display", serif;
   font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+#rooms {
+  padding-top: 6rem;
 }
 
 .card-img-overlay > .card-title {
@@ -167,25 +215,35 @@ footer div.text-center {
   line-height: 1.8;
 }
 
-@media screen and (max-width: 600px) {
-  .main-p {
-    font-size: 100%;
-    margin-top: 0.5rem;
-  }
-
+@media screen and (max-width: 768px) {
   .main-text {
     width: 80%;
     top: 15%;
     left: 5%;
+    background-color: inherit;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
-#reviews,
-#CTA,
-#location {
-  padding: 7% 15%;
-  text-align: center;
-  background-color: pink;
+/* <!------------ Map Section ------------> */
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+.iframe-container > * {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .reviews-img {

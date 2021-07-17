@@ -5,6 +5,12 @@ import {
   CarouselControl,
   CarouselIndicators,
 } from "reactstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  duration: 1500,
+});
 
 const Reviews = ({ reviews, press }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,7 +40,9 @@ const Reviews = ({ reviews, press }) => {
         onExited={() => setAnimating(false)}
         key={review.id}
       >
-        <h2 className="review-text">{review.quote}</h2>
+        <h2 data-aos="fade-up" className="review-text">
+          {review.quote}
+        </h2>
         <img src={review.image} alt={review.quote} className="reviews-img" />
         <em>{review.guest}</em>
       </CarouselItem>
@@ -44,13 +52,16 @@ const Reviews = ({ reviews, press }) => {
   const logos = press.map((logo) => {
     return (
       <img
+        data-aos="fade-up"
         className="pressImg"
         src={logo.img}
         alt="social proof trivago expedia trip advisor"
       />
     );
   });
-
+  AOS.init({
+    duration: 1500,
+  });
   return (
     <React.Fragment>
       <section id="reviews">

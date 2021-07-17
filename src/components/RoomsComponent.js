@@ -1,8 +1,13 @@
 import React from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Rooms({ rooms }) {
+  AOS.init({
+    duration: 1500,
+  });
   const room = rooms.map((room) => {
     return (
       <div className="col-md-4 mb-5" key={room.id}>
@@ -22,10 +27,12 @@ function Rooms({ rooms }) {
 
   return (
     <section className="container-fluid" id="rooms">
-      <h2 tag="h2" className="text-center">
+      <h2 tag="h2" data-aos="fade-up" className="text-center">
         Accomodations
       </h2>
-      <div className="row m-4 d-flex justify-content-center">{room}</div>
+      <div data-aos="fade-up" className="row m-4 d-flex justify-content-center">
+        {room}
+      </div>
     </section>
   );
 }

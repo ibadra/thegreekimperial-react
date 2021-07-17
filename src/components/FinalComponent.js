@@ -10,12 +10,18 @@ import {
   ModalBody,
   ModalHeader,
 } from "reactstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  duration: 1500,
+});
 
 export function CTA() {
   return (
     <section id="CTA" className="container-fluid">
-      <h2>We can't wait to meet you</h2>
-      <form>
+      <h2 data-aos="fade-up">We can't wait to meet you</h2>
+      <form data-aos="fade-up">
         <div className="form-group text-center">
           <a className="btn btn-lg btn-info" role="button">
             Book Now
@@ -35,7 +41,7 @@ export function Location() {
   return (
     <section id="location" className="container-fluid">
       <div className="row">
-        <div className="col-md-4">
+        <div data-aos="fade-up" className="col-md-4">
           <h4>Here we are!</h4>
           <p className="d-none d-md-block text-justify line">
             The Greek Imperial welcomes to the "Sponge Capital of the World"...
@@ -43,7 +49,7 @@ export function Location() {
             awaiting for you!...
           </p>
         </div>
-        <div className="col-md-8 iframe-container">
+        <div data-aos="fade-down" className="col-md-8 iframe-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.1383865044636!2d-82.75887040464744!3d28.151382441207534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1618978464197!5m2!1sen!2sus"
             width="600"
@@ -103,8 +109,8 @@ export class Newsletter extends Component {
   render() {
     return (
       <section id="newsletter" className="container-fluid">
-        <h2>Subscribe to Our Newsletter</h2>
-        <Form onSubmit={this.handleSubmit}>
+        <h2 data-aos="fade-up">Subscribe to Our Newsletter</h2>
+        <Form onSubmit={this.handleSubmit} data-aos="fade-up">
           <FormGroup row className="align-items-center">
             <Label className="sr-only" htmlFor="firstName">
               First Name

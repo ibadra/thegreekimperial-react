@@ -1,16 +1,25 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  duration: 1500,
+});
 
 function RenderAmenitiesEven({ amenity }) {
   return (
     <div key={amenity.id} className="row m-3 my-5 py-md-5">
-      <div className="col-xl-5">
+      <div data-aos="fade-up" className="col-xl-5">
         <img
           src={amenity.image}
           alt={amenity.description}
           className="amenity-image img-fluid"
         />
       </div>
-      <div className="col-xl-5 align-self-center ml-auto mt-4 mt-xl-0">
+      <div
+        data-aos="fade-down"
+        className="col-xl-5 align-self-center ml-auto mt-4 mt-xl-0"
+      >
         <h3 tag="h3">{amenity.name}</h3>
         <p className="d-none d-md-block">{amenity.description}</p>
       </div>
@@ -21,11 +30,14 @@ function RenderAmenitiesEven({ amenity }) {
 function RenderAmenitiesOdd({ amenity }) {
   return (
     <div key={amenity.id} className="row m-4 my-5 py-md-5">
-      <div className="col-xl-5 align-self-center order-last order-xl-first mt-4 mt-xl-0">
+      <div
+        data-aos="fade-down"
+        className="col-xl-5 align-self-center order-last order-xl-first mt-4 mt-xl-0"
+      >
         <h3 tag="h3">{amenity.name}</h3>
         <p className="d-none d-md-block">{amenity.description}</p>
       </div>
-      <div className="col-xl-5 align-self-center ml-auto">
+      <div data-aos="fade-up" className="col-xl-5 align-self-center ml-auto">
         <img
           src={amenity.image}
           alt={amenity.description}
@@ -49,7 +61,7 @@ function Amenities({ amenities }) {
   });
   return (
     <section id="amenities" className="container-fluid">
-      <h2 tag="h2" className="text-center">
+      <h2 data-aos="fade-up" tag="h2" className="text-center">
         Amenities
       </h2>
       <div className="container">{amenitiesDisplay}</div>

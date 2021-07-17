@@ -2,16 +2,16 @@ import React from "react";
 
 function RenderAmenitiesEven({ amenity }) {
   return (
-    <div key={amenity.id} className="row m-3 mt-5 mb-5">
-      <div className="col-md-5">
+    <div key={amenity.id} className="row m-3 my-5 py-md-5">
+      <div className="col-xl-5">
         <img
           src={amenity.image}
           alt={amenity.description}
-          className="img-fluid"
+          className="amenity-image img-fluid"
         />
       </div>
-      <div className="col-md-5 align-self-center">
-        <h4 tag="h4">{amenity.name}</h4>
+      <div className="col-xl-5 align-self-center ml-auto mt-4 mt-xl-0">
+        <h3 tag="h3">{amenity.name}</h3>
         <p className="d-none d-md-block">{amenity.description}</p>
       </div>
     </div>
@@ -20,12 +20,12 @@ function RenderAmenitiesEven({ amenity }) {
 
 function RenderAmenitiesOdd({ amenity }) {
   return (
-    <div key={amenity.id} className="row m-4 mt-5 mb-5">
-      <div className="col-md-5 align-self-center order-last order-md-first">
-        <h4 tag="h4">{amenity.name}</h4>
+    <div key={amenity.id} className="row m-4 my-5 py-md-5">
+      <div className="col-xl-5 align-self-center order-last order-xl-first mt-4 mt-xl-0">
+        <h3 tag="h3">{amenity.name}</h3>
         <p className="d-none d-md-block">{amenity.description}</p>
       </div>
-      <div className="col-md-5">
+      <div className="col-xl-5 align-self-center ml-auto">
         <img
           src={amenity.image}
           alt={amenity.description}

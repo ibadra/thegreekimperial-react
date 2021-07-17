@@ -18,7 +18,7 @@ const RenderRoom = ({ room }) => {
 const RenderInfo = ({ room }) => {
   if (room.icon1) {
     return (
-      <div className="col-md-5">
+      <div className="col-md-5 mt-5">
         <p className="room-info">{room.description}</p>
         <h4 className="ml-3">Facts at a Glance:</h4>
         <div className="icon-container ml-3 mt-5">
@@ -43,7 +43,7 @@ const RenderInfo = ({ room }) => {
     );
   }
   return (
-    <div className="col-md-5" key={room.id}>
+    <div className="col-md-5 mt-5" key={room.id}>
       <p className="room-info">{room.description}</p>
     </div>
   );

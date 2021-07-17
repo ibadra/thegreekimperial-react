@@ -117,14 +117,14 @@ export class Book extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="rooms" md={2}>
+                <Label htmlFor="room" md={2}>
                   Pick your room(s)
                 </Label>
                 <Col md={4}>
                   <Input
                     type="select"
                     name="rooms"
-                    id="rooms"
+                    id="room"
                     value={this.state.rooms}
                     onChange={this.handleInputChange}
                   >
@@ -180,7 +180,7 @@ export class Book extends Component {
               </FormGroup>
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
-                  <Button type="submit" color="primary">
+                  <Button type="submit" color="info">
                     Check Availability
                   </Button>
                 </Col>
@@ -372,7 +372,7 @@ export class SpecialBooking extends Component {
               </FormGroup>
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
-                  <Button type="submit" color="primary">
+                  <Button type="submit" color="info">
                     Check Availability
                   </Button>
                 </Col>

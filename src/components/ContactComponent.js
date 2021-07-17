@@ -8,6 +8,9 @@ import {
   Label,
   Input,
   Col,
+  Modal,
+  ModalBody,
+  ModalHeader,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -16,23 +19,30 @@ class Contact extends Component {
     super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
+      name: "",
       phoneNum: "",
       email: "",
-      agree: false,
       contactType: "By Phone",
-      feedback: "",
+      text: "",
+      showModal: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal,
+    });
   }
 
   handleInputChange(event) {
     const target = event.target;
     const name = target.name;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.value;
 
     this.setState({
       [name]: value,
@@ -41,8 +51,18 @@ class Contact extends Component {
 
   handleSubmit(event) {
     console.log("Current state is: " + JSON.stringify(this.state));
-    alert("Current state is: " + JSON.stringify(this.state));
+    this.toggleModal();
     event.preventDefault();
+  }
+
+  resetForm() {
+    this.setState({
+      name: "",
+      phoneNum: "",
+      email: "",
+      contactType: "By Phone",
+      text: "",
+    });
   }
 
   render() {
@@ -56,37 +76,23 @@ class Contact extends Component {
         </Breadcrumb>
         <div className="row row-content">
           <div className="col-12">
-            <h2>Send us your Feedback</h2>
+            <h2>Contact us</h2>
+            <p>We are here for you! Just fill out the form below</p>
             <hr />
           </div>
           <div className="col-md-10">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup row>
-                <Label htmlFor="firstName" md={2}>
-                  First Name
+                <Label htmlFor="name" md={2}>
+                  Name
                 </Label>
                 <Col md={10}>
                   <Input
                     type="text"
-                    id="firstName"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={this.state.firstName}
-                    onChange={this.handleInputChange}
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label htmlFor="lastName" md={2}>
-                  Last Name
-                </Label>
-                <Col md={10}>
-                  <Input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={this.state.lastName}
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    value={this.state.name}
                     onChange={this.handleInputChange}
                   />
                 </Col>
@@ -122,23 +128,14 @@ class Contact extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Col md={{ size: 4, offset: 2 }}>
-                  <FormGroup check>
-                    <Label check>
-                      <Input
-                        type="checkbox"
-                        name="agree"
-                        checked={this.state.agree}
-                        onChange={this.handleInputChange}
-                      />{" "}
-                      <strong>May we contact you?</strong>
-                    </Label>
-                  </FormGroup>
-                </Col>
+                <Label htmlFor="contactType" md={2}>
+                  Preferred contact method
+                </Label>
                 <Col md={4}>
                   <Input
                     type="select"
                     name="contactType"
+                    id="contactType"
                     value={this.state.contactType}
                     onChange={this.handleInputChange}
                   >
@@ -148,30 +145,54 @@ class Contact extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="feedback" md={2}>
-                  Your Feedback
+                <Label htmlFor="text" md={2}>
+                  Your Message
                 </Label>
                 <Col md={10}>
                   <Input
                     type="textarea"
-                    id="feedback"
-                    name="feedback"
+                    id="text"
+                    name="text"
                     rows="12"
-                    value={this.state.feedback}
+                    value={this.state.text}
                     onChange={this.handleInputChange}
                   ></Input>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
-                  <Button type="submit" color="primary">
-                    Send Feedback
+                  <Button type="submit" color="info">
+                    Submit
                   </Button>
                 </Col>
               </FormGroup>
             </Form>
           </div>
         </div>
+        <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
+          <ModalHeader className="justify-content-center">
+            <h3>Thank you...</h3>
+          </ModalHeader>
+          <ModalBody>
+            <p>
+              Thanks for contacting us! We will contact you back as soon as
+              possible
+            </p>
+            <div className="text-center">
+              <Button
+                className="mt-3 text-center"
+                type="submit"
+                color="primary"
+                onClick={() => {
+                  this.toggleModal();
+                  this.resetForm();
+                }}
+              >
+                Thank you
+              </Button>
+            </div>
+          </ModalBody>
+        </Modal>
       </div>
     );
   }

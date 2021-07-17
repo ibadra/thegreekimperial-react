@@ -5,7 +5,7 @@ h1 {
   font-weight: 700;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   h1 {
     font-size: 300%;
     color: #845460;
@@ -73,6 +73,10 @@ p {
 #newsletter {
   padding: 7% 15%;
   text-align: center;
+}
+
+#reviews {
+  padding-bottom: 10%;
 }
 
 #rooms,
@@ -215,7 +219,13 @@ footer div.text-center {
   line-height: 1.8;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .overlay {
+    height: 48%;
+  }
+}
+
+@media screen and (max-width: 766px) {
   .main-text {
     width: 80%;
     top: 15%;
@@ -224,6 +234,30 @@ footer div.text-center {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+}
+
+@media screen and (width: 768px) {
+  .main-text {
+    width: 90%;
+    top: 20%;
+    left: 5%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .overlay {
+    height: 50%;
+  }
+}
+
+.amenity-image {
+  border-radius: 8%;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  background: linear-gradient(#845460, #f7e9c2);
+  background-size: 100% 95%;
+  background-repeat: no-repeat;
+  /* margin-right: 5rem;
+  margin-left: 5rem; */
 }
 
 /* <!------------ Map Section ------------> */
@@ -260,6 +294,13 @@ footer div.text-center {
   margin-right: -13%;
 }
 
+span.carousel-control-prev-icon,
+span.carousel-control-next-icon {
+  filter: invert(1);
+  background-color: #845460;
+  border-radius: 50%;
+}
+
 .indicators {
   margin-bottom: -8%;
 }
@@ -269,6 +310,7 @@ footer div.text-center {
   height: 0.625rem;
   width: 0.625rem;
   margin: auto 0.6rem;
+  background-color: #845460;
 }
 
 .pressImg {

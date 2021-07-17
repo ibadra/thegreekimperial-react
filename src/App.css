@@ -331,3 +331,23 @@ span.carousel-control-next-icon {
   justify-content: space-between;
   width: 18rem;
 }
+
+/* <!------------ Animations ------------> */
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: 450ms ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: 450ms ease-in;
+}

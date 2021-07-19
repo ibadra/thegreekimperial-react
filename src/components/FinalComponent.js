@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalHeader,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -23,14 +24,14 @@ export function CTA() {
       <h2 data-aos="fade-up">We can't wait to meet you</h2>
       <form data-aos="fade-up">
         <div className="form-group text-center">
-          <a className="btn btn-lg btn-info" role="button">
+          <Link className="btn btn-lg btn-info" to="/book" role="button">
             Book Now
-          </a>
+          </Link>
         </div>
         <div className="form-group text-center">
-          <a className="btn btn-outline-info" role="button">
+          <Link className="btn btn-outline-info" to="/contact" role="button">
             Contact Us
-          </a>
+          </Link>
         </div>
       </form>
     </section>
@@ -58,6 +59,7 @@ export function Location() {
             allowfullscreen=""
             loading="lazy"
             className="img-fluid ml-xl-5"
+            title="map"
           ></iframe>
         </div>
       </div>

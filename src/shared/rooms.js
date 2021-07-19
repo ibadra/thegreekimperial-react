@@ -49,7 +49,6 @@ export const ROOMS = [
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 416 512"
-        viewBox="0 0 416 512"
         height="3rem"
         width="3rem"
       >
@@ -79,7 +78,6 @@ export const ROOMS = [
         class="svg-inline--fa fa-utensils"
         role="img"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 416 512"
         viewBox="0 0 416 512"
         height="3rem"
         width="3rem"

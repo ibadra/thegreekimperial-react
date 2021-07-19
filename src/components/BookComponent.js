@@ -103,7 +103,7 @@ export class Book extends Component {
               </FormGroup>
               <FormGroup row>
                 <Label htmlFor="checkOut" md={2}>
-                  Check In
+                  Check Out
                 </Label>
                 <Col md={3}>
                   <Input
@@ -181,7 +181,7 @@ export class Book extends Component {
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
                   <Button type="submit" color="info">
-                    Check Availability
+                    Book
                   </Button>
                 </Col>
               </FormGroup>
@@ -191,16 +191,16 @@ export class Book extends Component {
         <Modal
           isOpen={this.state.showModal}
           toggle={this.toggleModal}
-          className="modal-lg"
+          className="modal-md"
         >
           <ModalHeader className="justify-content-center">
             <h3>Opa!</h3>
           </ModalHeader>
           <ModalBody>
-            <p>{`Your room selection is available (Reference # ${number}).`}</p>
+            <p>{`Thanks for your reservation! (Reference # ${number}).`}</p>
             <p>
-              To make your reservation, please call us at 1-206-555-1234 with
-              your reference number at hand.
+              Please call us at 1-206-555-1234 with your reference number at
+              hand to make your payment.
             </p>
             <div className="text-center">
               <Button
@@ -373,7 +373,7 @@ export class SpecialBooking extends Component {
               <FormGroup row>
                 <Col md={{ size: 10, offset: 2 }}>
                   <Button type="submit" color="info">
-                    Check Availability
+                    Book
                   </Button>
                 </Col>
               </FormGroup>
@@ -383,16 +383,16 @@ export class SpecialBooking extends Component {
         <Modal
           isOpen={this.state.showModal}
           toggle={this.toggleModal}
-          className="modal-lg"
+          className="modal-md"
         >
           <ModalHeader className="justify-content-center">
             <h3>Opa!</h3>
           </ModalHeader>
           <ModalBody>
-            <p>{`We have a ${this.state.selectedOption} available for you. (Reference # ${number}).`}</p>
+            <p>{`We have a ${this.state.selectedOption} available for you. Thanks for your reservation! (Reference # ${number}).`}</p>
             <p>
-              To make your reservation, please call us at 1-206-555-1234 with
-              your reference number at hand.
+              Please call us at 1-206-555-1234 with your reference number at
+              hand to make your payment.
             </p>
             <div className="text-center">
               <Button

@@ -154,7 +154,7 @@ export class Newsletter extends Component {
         <Modal
           isOpen={this.state.showModal}
           toggle={this.toggleModal}
-          className="modal-lg"
+          className="modal-md"
         >
           <ModalHeader className="justify-content-center">
             <h3>You're subscribed!</h3>

@@ -169,7 +169,11 @@ class Contact extends Component {
             </Form>
           </div>
         </div>
-        <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
+        <Modal
+          isOpen={this.state.showModal}
+          toggle={this.toggleModal}
+          className="modal-md"
+        >
           <ModalHeader className="justify-content-center">
             <h3>Thank you...</h3>
           </ModalHeader>

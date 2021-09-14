@@ -20,7 +20,7 @@ This website was developed for a fictional hotel located in Tarpon Springs, FL. 
 &nbsp;
 \
 &nbsp;
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1200px-Npm-logo.svg.png" alt="drawing" width="250"/>
+<img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2018/05/yarn.png" alt="drawing" width="300"/>
 \
 &nbsp;
 \

@@ -26,6 +26,16 @@ This website was developed for a fictional hotel located in Tarpon Springs, FL. 
 \
 &nbsp;
 
+\
+&nbsp;
+
+## Wireframes / Design Process:
+
+<img src="./public/assets/img/wireframe-r1.jpg" width='450'>\
+&nbsp;
+<img src="./public/assets/img/wireframe-r2.jpg" width='450'>\
+&nbsp;
+
 ## Screenshots:
 
 \
